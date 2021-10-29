@@ -1,0 +1,19 @@
+<?php
+$num_array=[77,5,5,22,13,55,97,4,796,1,0,9];
+$num_tmp;
+for($i=0;$i<count($num_array);$i++){
+    if($i+1<count($num_array)&&$num_array[$i]>$num_array[$i+1]){
+        $num_tmp=$num_array[$i+1];
+        $num_array[$i+1]=$num_array[$i];
+        $num_array[$i]=$num_tmp;
+    }
+    for($j=count($num_array)-1;$j>=$i;$j--){
+        if($j-1>=0&&$num_array[$j-1]>$num_array[$j]){
+            $num_tmp=$num_array[$j-1];
+            $num_array[$j-1]=$num_array[$j];
+            $num_array[$j]=$num_tmp;
+        }
+    }
+}
+print_r($num_array);
+?>
