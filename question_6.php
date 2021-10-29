@@ -1,0 +1,24 @@
+<?php
+$nums=[2,5,6,10,12,13,14,17,19,20,21];
+$target=21;
+function twosum($nums,$target){
+    $answer;
+    for($i=0;$i<count($nums);$i++){
+        $k=$i;
+        while($k>0){
+            next($nums);
+            $k--;
+        }
+        $num_one=key($nums);
+        for($j=$i+1;$j<count($nums);$j++){
+            next($nums);
+            if($nums[$i]+$nums[$j]==$target){
+                $answer='['.$num_one.','.key($nums).']';
+            }     
+        }
+        reset($nums);
+    }
+    print_r($answer);
+}
+twosum($nums,$target);
+?>
